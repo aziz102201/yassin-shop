@@ -1,0 +1,1022 @@
+# YASSIN SHOP — BUILD THE ENTIRE PRODUCTION WEBSITE
+
+You are the lead software engineer, senior frontend engineer, senior backend engineer, security engineer, UI/UX engineer, QA engineer, and release engineer for this project.
+
+Your job is not to explain how to build the website.
+
+Your job is to **build it**.
+
+Do not behave like a tutorial assistant.
+Do not give me a list of implementation steps and wait for approval.
+Do not repeatedly ask me questions that can be answered by inspecting the repository, assets, existing configuration, or by making a reasonable professional engineering decision.
+
+Take ownership of the implementation from start to finish.
+
+The final result must feel like it was produced by a very strong professional software engineer for a real business—not generated filler, not a template with arbitrary components, not an oversized demo, and not "AI slop."
+
+---
+
+# 1. THE PRODUCT
+
+Build the production website for **Yassin Shop**, a real retail shop.
+
+The website is a customer-facing online storefront whose primary purpose is to:
+
+* present the shop professionally
+* showcase its real products
+* let customers browse products easily
+* inspect product details
+* select relevant variants such as size/color when applicable
+* understand pricing and availability
+* place an order/contact the shop through the intended ordering mechanism
+* work exceptionally well on mobile
+* look trustworthy enough that a real customer would comfortably buy from it
+
+The website must be designed around the actual business rather than around generic ecommerce boilerplate.
+
+The business is in Tunisia, so the experience should feel appropriate for Tunisian customers:
+
+* TND pricing
+* Tunisian phone/contact conventions where applicable
+* French and/or Arabic content when supported by the available business information
+* excellent Arabic RTL support if Arabic is included
+* mobile-first behavior
+* practical ordering flow appropriate for how the shop actually sells
+
+Do not invent business facts.
+
+Do not invent products.
+Do not invent prices.
+Do not invent sizes.
+Do not invent colors.
+Do not invent stock.
+Do not invent delivery promises.
+Do not invent payment methods.
+Do not invent addresses, phone numbers, social accounts, policies, or legal claims.
+
+Use the real information and assets available in the repository/project.
+
+Where real business information is genuinely missing, build the system so the information can be supplied cleanly through the intended content/data layer rather than hardcoding fake facts into the customer experience.
+
+---
+
+# 2. YOUR FIRST RESPONSIBILITY: UNDERSTAND THE PROJECT
+
+Before changing the implementation, inspect the entire existing project.
+
+Understand:
+
+* repository structure
+* framework
+* package manager
+* existing dependencies
+* existing pages/routes
+* existing components
+* existing styles
+* existing data models
+* existing backend
+* existing APIs
+* existing database configuration
+* existing environment configuration
+* existing image assets
+* logos
+* fonts
+* icons
+* product photos
+* content
+* existing design decisions
+* deployment configuration
+* scripts
+* tests
+* linting/typechecking configuration
+* existing documentation
+* AGENTS.md and all applicable project instructions
+
+Treat the repository as the source of truth for anything already established.
+
+Do not destroy useful existing work simply because you would have implemented it differently.
+
+However, do not preserve poor architecture merely because it already exists.
+
+Refactor decisively where necessary.
+
+If the repository is effectively empty or clearly a prototype, establish the architecture yourself.
+
+---
+
+# 3. NO MICRO-MANAGEMENT
+
+You have authority to make normal engineering decisions without asking me.
+
+Do not stop to ask:
+
+* which component library to use
+* which folder to put a component in
+* whether to use server components
+* whether a utility should be extracted
+* whether a button should have a certain radius
+* which validation library to choose
+* whether to use a specific testing technique
+* how to name internal functions
+* whether a small refactor is acceptable
+
+Make the decision that best serves:
+
+1. correctness
+2. security
+3. maintainability
+4. performance
+5. accessibility
+6. UX
+7. simplicity
+
+Do not ask for permission for ordinary implementation decisions.
+
+---
+
+# 4. IMPORTANT: DO NOT FABRICATE CONTENT
+
+This is a real business website.
+
+Fake ecommerce content is unacceptable.
+
+Never silently create realistic-looking fake:
+
+* products
+* prices
+* descriptions presented as factual
+* reviews
+* ratings
+* stock levels
+* customer testimonials
+* sales statistics
+* company history
+* delivery claims
+* payment claims
+* guarantees
+* contact information
+
+Placeholder content is acceptable only during internal development when absolutely necessary, and it must be structurally obvious and easy to replace. It must never accidentally ship as real business information.
+
+Prefer deriving content from existing project data/assets.
+
+---
+
+# 5. THE DESIGN STANDARD
+
+The design must be excellent.
+
+Not "pretty enough."
+
+Not "modern-looking because it uses gradients."
+
+Not a generic Tailwind landing page.
+
+It should look like a carefully art-directed boutique retail brand.
+
+Prioritize:
+
+* strong visual hierarchy
+* excellent typography
+* deliberate whitespace
+* restrained visual language
+* consistent spacing
+* consistent component geometry
+* high-quality product photography presentation
+* clear CTAs
+* intuitive navigation
+* strong mobile composition
+* excellent product cards
+* high-quality product detail pages
+* polished loading states
+* polished empty states
+* polished error states
+* subtle interaction feedback
+* visual consistency across every route
+
+Avoid:
+
+* excessive rounded cards
+* random gradients
+* gratuitous glassmorphism
+* excessive shadows
+* huge text for no reason
+* decorative animation everywhere
+* meaningless badges
+* generic dashboard aesthetics
+* excessive component nesting
+* overly futuristic visuals unrelated to the brand
+* AI-generated filler copy
+* inconsistent icon styles
+* arbitrary colors
+* inconsistent spacing
+
+The website should feel intentional.
+
+Every visual choice should have a reason.
+
+---
+
+# 6. BRAND AND VISUAL SYSTEM
+
+Use the actual Yassin Shop branding/assets found in the project.
+
+If the repository contains:
+
+* logo
+* favicon
+* product photography
+* brand colors
+* existing social media imagery
+* typography
+* promotional material
+
+integrate them properly.
+
+Do not replace real assets with generic placeholders.
+
+Create a coherent design system from the available branding.
+
+Define reusable tokens for:
+
+* typography
+* colors
+* spacing
+* radii
+* shadows
+* borders
+* motion
+* container widths
+* breakpoints
+
+Do not scatter arbitrary values throughout the application when a consistent system can be established.
+
+---
+
+# 7. INFORMATION ARCHITECTURE
+
+The storefront should have a clear, commercially useful structure.
+
+At minimum, design the architecture around:
+
+* Home
+* Shop / Products
+* Product detail
+* Search
+* Category/filtering where appropriate
+* Cart/order flow if the actual business model supports it
+* Contact / customer support information where applicable
+* About/brand information only if real content exists
+
+Do not add pages purely to make the website look bigger.
+
+Every route must serve a real purpose.
+
+The navigation should be extremely easy to understand.
+
+On mobile, navigation must be designed intentionally rather than simply collapsing the desktop navbar.
+
+---
+
+# 8. PRODUCT EXPERIENCE
+
+The product browsing experience is one of the most important parts of this project.
+
+Product cards should:
+
+* show the correct product image
+* preserve image quality and aspect ratio
+* expose the important information without clutter
+* have excellent hover/touch behavior
+* handle missing images gracefully
+* have consistent visual height
+* avoid layout jumping
+
+Product pages should be substantially better than a simple image + title + price template.
+
+They should provide, when available:
+
+* product name
+* price
+* images/gallery
+* size selection
+* color selection
+* variant information
+* availability
+* description
+* relevant product information
+* ordering CTA
+* quantity where appropriate
+* clear state when a variant is unavailable
+
+Variant selection must be stateful and reliable.
+
+Do not let a user order a combination of options that is not actually available.
+
+---
+
+# 9. ORDERING FLOW
+
+Determine the correct ordering mechanism from the actual project/business information.
+
+If the business uses direct messaging, WhatsApp, phone, or another contact-first order flow, implement the experience around that rather than pretending a full payment system exists.
+
+If there is already an actual checkout/order backend in the project, make it production-quality.
+
+Where relevant:
+
+* preserve selected product
+* preserve selected variant
+* preserve quantity
+* construct the order/contact message safely
+* make the final CTA obvious
+* make failure states clear
+* make mobile usage effortless
+
+Never expose private implementation details or secrets to the client.
+
+---
+
+# 10. MOBILE IS NOT SECONDARY
+
+Design mobile first.
+
+The majority of real retail traffic may come from phones.
+
+Test the website at realistic viewport sizes.
+
+Check:
+
+* navbar
+* product grids
+* product galleries
+* filters
+* forms
+* buttons
+* sticky actions
+* text wrapping
+* image crops
+* modal/dialog behavior
+* drawers
+* ordering CTA
+* footer
+* long product names
+* Arabic RTL layouts where applicable
+
+Do not merely verify that "nothing overflows."
+
+The mobile experience must actually be pleasant.
+
+---
+
+# 11. RESPONSIVE DESIGN
+
+The layout must be responsive across:
+
+* small phones
+* normal phones
+* tablets
+* laptops
+* large desktop screens
+
+Do not make desktop the master layout and squeeze it onto mobile.
+
+Components must adapt intelligently.
+
+Avoid fixed dimensions wherever responsive behavior is more appropriate.
+
+---
+
+# 12. ACCESSIBILITY
+
+Treat accessibility as part of implementation, not as an afterthought.
+
+Implement:
+
+* semantic HTML
+* proper landmarks
+* correct heading hierarchy
+* keyboard navigation
+* visible focus states
+* accessible form labels
+* useful alt text
+* appropriate button/link semantics
+* adequate touch targets
+* accessible dialogs/drawers
+* correct ARIA usage only where needed
+* sufficient contrast
+* reduced-motion support where appropriate
+
+Do not use ARIA to compensate for poor HTML.
+
+---
+
+# 13. PERFORMANCE
+
+The website must be fast.
+
+Use the framework's capabilities intelligently.
+
+Prioritize:
+
+* optimized images
+* appropriate image sizing
+* lazy loading where appropriate
+* minimal client-side JavaScript
+* server rendering where beneficial
+* code splitting
+* avoiding unnecessary dependencies
+* avoiding hydration-heavy components
+* avoiding large libraries for tiny jobs
+* stable layouts that reduce CLS
+* efficient data fetching
+* caching where appropriate
+
+Do not optimize blindly.
+
+Measure the important things and fix real bottlenecks.
+
+---
+
+# 14. SECURITY
+
+Assume the website will eventually be exposed to hostile internet traffic.
+
+Apply production security practices throughout the application.
+
+At minimum:
+
+* validate all untrusted input server-side
+* never trust client-side validation
+* never trust client-provided prices
+* never trust client-provided stock state
+* prevent unauthorized data access
+* prevent IDOR-style access to protected resources
+* protect server-only secrets
+* never expose environment secrets to the client
+* use safe authentication/authorization patterns where authentication exists
+* protect state-changing operations
+* sanitize/escape user-generated content where relevant
+* avoid SQL injection
+* avoid XSS
+* avoid open redirects
+* avoid unsafe URL handling
+* avoid insecure file handling
+* avoid dangerous dynamic evaluation
+* use secure cookies/session configuration where applicable
+* apply appropriate security headers
+* prevent sensitive data from appearing in client bundles
+* avoid leaking stack traces or internal errors in production
+* handle errors without exposing implementation details
+
+Do not add security theater.
+
+Implement actual security controls appropriate to the architecture.
+
+---
+
+# 15. DATA INTEGRITY
+
+Any business-critical state must have a single authoritative source.
+
+Do not maintain duplicate representations of the same truth unnecessarily.
+
+For example:
+
+* do not calculate an important business value differently in multiple places
+* do not let the client become authoritative for price
+* do not allow stale client state to overwrite authoritative server data
+* do not duplicate database truth into arbitrary local constants
+* do not create inconsistent parallel representations of products
+
+When there is a conflict, the authoritative server/data layer wins.
+
+---
+
+# 16. ERROR HANDLING
+
+Every important failure path must be intentionally handled.
+
+Handle:
+
+* missing product
+* invalid product ID
+* unavailable variant
+* missing image
+* failed network request
+* malformed data
+* empty search results
+* invalid form submission
+* failed order/contact operation
+* unavailable server action
+* database failure
+* unexpected runtime error
+
+Users should receive useful feedback.
+
+Developers should receive useful diagnostics.
+
+Do not show raw exceptions to customers.
+
+---
+
+# 17. LOADING, EMPTY AND ERROR STATES
+
+Do not build only the happy path.
+
+Every important async interface needs:
+
+* loading state
+* empty state
+* error state
+* success state
+
+These states must look like part of the product.
+
+Not default browser text.
+Not giant generic spinners.
+Not unfinished skeletons everywhere.
+
+Use skeletons only where they genuinely improve perceived performance.
+
+---
+
+# 18. SEO
+
+Treat SEO as part of the production implementation.
+
+Implement appropriate:
+
+* metadata
+* titles
+* descriptions
+* canonical URLs where applicable
+* Open Graph metadata
+* Twitter/social metadata where relevant
+* semantic markup
+* sitemap
+* robots configuration
+* useful product metadata
+* clean URLs
+* indexability controls
+
+Do not generate fake SEO content.
+
+Product pages should have meaningful metadata derived from actual product data.
+
+---
+
+# 19. INTERNATIONALIZATION
+
+If the project/business content supports French and/or Arabic, architecture must support it properly.
+
+Arabic must not be treated as an afterthought.
+
+Support:
+
+* RTL layout
+* direction-aware spacing
+* correct text alignment
+* locale-aware formatting
+* correct typography
+* direction-safe icons
+* proper navigation behavior
+* accessible language switching
+* no hardcoded directional assumptions
+
+Do not duplicate entire interfaces unnecessarily just to support locales.
+
+Use a coherent localization architecture.
+
+If English is not actually needed by the business, do not add pointless English content merely because ecommerce templates usually have it.
+
+---
+
+# 20. ARCHITECTURE
+
+Prefer a simple, coherent architecture.
+
+Do not over-engineer.
+
+Do not create layers merely to make the code look "enterprise."
+
+Use:
+
+* clear domain boundaries
+* reusable components where reuse is real
+* small composable modules
+* strong typing
+* explicit contracts
+* predictable data flow
+* separation of concerns
+* minimal magic
+
+A future engineer should be able to understand the project quickly.
+
+If a simple solution solves the problem well, use the simple solution.
+
+---
+
+# 21. CODE QUALITY
+
+Code must be production-quality.
+
+Requirements:
+
+* strict TypeScript where applicable
+* no unnecessary `any`
+* no ignored type errors
+* no dead code
+* no commented-out garbage
+* no duplicate implementations
+* no unexplained magic constants
+* no giant components doing everything
+* no unnecessary abstraction
+* no brittle selectors
+* no fragile state synchronization
+* clear naming
+* clear responsibilities
+* predictable error handling
+* maintainable folder structure
+
+Comments should explain WHY when the reasoning is non-obvious.
+
+Do not comment obvious code.
+
+---
+
+# 22. DEPENDENCIES
+
+Use dependencies deliberately.
+
+Before adding a dependency, determine whether:
+
+* the framework already provides the capability
+* a small local implementation is better
+* the dependency is actively maintained
+* it materially improves the product
+
+Do not install five packages to implement one small feature.
+
+Do not add dependencies simply because they are popular.
+
+---
+
+# 23. TESTING
+
+Testing is part of the build, not something to recommend later.
+
+Create and run appropriate tests for the finished architecture.
+
+At minimum, cover important business logic and critical user flows.
+
+Test things such as:
+
+* product retrieval
+* product variants
+* invalid variants
+* ordering flow
+* validation
+* authorization where present
+* important server actions
+* important edge cases
+* error handling
+
+Also perform real browser-level verification of the finished site.
+
+Do not trust that passing TypeScript means the website works.
+
+---
+
+# 24. BROWSER VERIFICATION
+
+After implementation, actually open and interact with the application.
+
+Test the website as a user would.
+
+Verify:
+
+* homepage loads
+* navigation works
+* routes work
+* products appear
+* product pages work
+* images load
+* search works
+* filters work where present
+* variant selection works
+* order flow works
+* mobile navigation works
+* forms work
+* no obvious console errors
+* no broken links
+* no unexpected layout shifts
+* no obvious responsive bugs
+
+Do not stop at "npm run build succeeded."
+
+A successful build is not proof of a successful product.
+
+---
+
+# 25. VISUAL QA
+
+Perform a serious visual review of every major page.
+
+Look for:
+
+* alignment problems
+* awkward whitespace
+* inconsistent typography
+* bad image crops
+* inconsistent card heights
+* weak hierarchy
+* buttons that look out of place
+* desktop/mobile inconsistencies
+* excessive density
+* accidental generic-template aesthetics
+* visual bugs introduced by real content
+
+Fix the issues you find.
+
+Do not report the issues and leave them unfixed.
+
+---
+
+# 26. QUALITY BAR
+
+Before declaring the project complete, evaluate it as if you were the engineer responsible for shipping it to a paying client.
+
+Ask yourself:
+
+"Would I be comfortable putting my name on this?"
+
+"Would another experienced engineer consider this maintainable?"
+
+"Would a real customer trust this website?"
+
+"Would this feel like an actual business website?"
+
+"Would I be embarrassed if the client opened the source code?"
+
+The answer must be NO to the last question and YES to the others.
+
+---
+
+# 27. NO FAKE COMPLETION
+
+Never claim:
+
+* "production ready"
+* "fully tested"
+* "secure"
+* "SEO optimized"
+* "responsive"
+* "all working"
+
+unless you actually verified the relevant thing.
+
+Do not hide failures.
+
+Do not suppress errors just to get a clean final summary.
+
+If something genuinely cannot be completed because a required external fact/credential/business asset is missing, implement everything that can be implemented safely and isolate the dependency cleanly.
+
+Do not fabricate the missing information.
+
+---
+
+# 28. ENGINEERING DISCIPLINE
+
+When you discover a bug:
+
+1. determine the actual root cause
+2. fix the root cause
+3. check for related bugs
+4. run the relevant verification again
+
+Do not patch symptoms repeatedly.
+
+When you discover duplicated logic:
+
+* consolidate it where appropriate.
+
+When you discover inconsistent behavior:
+
+* identify the authoritative source
+* make the rest of the system obey it.
+
+When the existing architecture prevents high-quality implementation:
+
+* refactor it.
+
+---
+
+# 29. PROJECT DOCUMENTATION
+
+Leave the repository in a professional state.
+
+Create/update only the documentation that is genuinely useful, such as:
+
+* project README
+* environment setup documentation
+* architecture notes where useful
+* operational/deployment notes
+
+Do not create dozens of documentation files merely to look thorough.
+
+Also maintain an appropriate `AGENTS.md` containing durable project-level engineering rules that future OpenCode sessions should obey.
+
+The `AGENTS.md` should describe the actual project conventions you established—not generic AI instructions.
+
+---
+
+# 30. SECRETS AND ENVIRONMENT VARIABLES
+
+Handle secrets professionally.
+
+Never:
+
+* hardcode secrets
+* commit secrets
+* place secrets in client-side code
+* expose server environment variables unnecessarily
+* print secrets in logs
+* create fake production credentials
+
+Use environment variables appropriately.
+
+Provide a safe `.env.example` when needed, without real secrets.
+
+---
+
+# 31. DEPLOYABILITY
+
+The finished repository must be deployable.
+
+Verify:
+
+* production build
+* production startup
+* required environment variables are documented
+* database setup/migrations where applicable
+* assets are available
+* routes work in production mode
+* no development-only assumptions remain
+* no localhost-only behavior remains
+* no accidental debug UI remains
+
+Use the project's existing deployment target when one is already established.
+
+Otherwise choose a sensible production architecture consistent with the project's stack.
+
+Do not introduce infrastructure complexity without a reason.
+
+---
+
+# 32. DO NOT BUILD USELESS FEATURES
+
+Do not add random:
+
+* dashboards
+* analytics
+* admin panels
+* authentication
+* reviews
+* wishlists
+* coupon systems
+* payment systems
+* recommendation engines
+* AI chatbots
+* loyalty systems
+* complicated CMS layers
+* unnecessary databases
+* unnecessary APIs
+
+unless the actual project/business requirements justify them or they already exist and are part of the product.
+
+A smaller polished product is better than a giant unfinished one.
+
+---
+
+# 33. IMPORTANT PRODUCT PRINCIPLE
+
+The site should be built around the actual customer journey:
+
+discover → browse → inspect → decide → order/contact → confirmation
+
+Optimize the entire experience around that journey.
+
+Do not optimize for number of pages or number of components.
+
+---
+
+# 34. WHEN INFORMATION IS MISSING
+
+Use this decision hierarchy:
+
+1. Existing repository data
+2. Existing project assets
+3. Existing business/content information
+4. Existing implementation conventions
+5. Official/current framework documentation when technical behavior needs verification
+6. Sensible professional engineering judgment
+
+Only ask me when a missing decision is genuinely impossible to resolve safely and the answer materially changes the real product.
+
+Do not interrupt the build for trivial uncertainty.
+
+---
+
+# 35. BUILD AUTONOMOUSLY
+
+Work continuously until the product is in the best complete state you can reasonably achieve.
+
+You may:
+
+* create files
+* modify files
+* remove obsolete code
+* install appropriate dependencies
+* refactor
+* run commands
+* run tests
+* run builds
+* run linters
+* run type checks
+* inspect browser output
+* fix bugs
+* repeat verification
+
+Do not stop after the first successful implementation.
+
+After the first complete implementation, perform a second pass specifically looking for:
+
+* security issues
+* UX issues
+* responsive issues
+* accessibility issues
+* maintainability issues
+* unnecessary complexity
+* visual polish problems
+* missing edge cases
+
+Then fix what you find.
+
+---
+
+# 36. FINAL DEFINITION OF DONE
+
+Do not consider the task complete because the code compiles.
+
+It is complete only when:
+
+* the actual site is implemented
+* the main customer flows work
+* real project assets/content are used correctly
+* responsive behavior is good
+* accessibility is reasonable and intentional
+* important data is validated
+* security has been considered throughout
+* important errors are handled
+* tests pass
+* typechecking passes
+* linting passes where configured
+* production build passes
+* the application has been manually/browser verified
+* obvious console/runtime issues are resolved
+* no fake business claims remain
+* no obvious AI-generated filler remains
+* architecture is understandable
+* code is maintainable
+* deployment requirements are documented
+* the final UI looks professionally designed
+* the result is genuinely suitable for shipping
+
+---
+
+# 37. VERY IMPORTANT FINAL BEHAVIOR
+
+Do not give me a long explanation of what you are going to do.
+
+Do not ask me to approve a plan.
+
+Do not create a superficial scaffold and call it finished.
+
+Do not optimize for speed at the expense of quality.
+
+Do not optimize for code volume.
+
+Do not optimize for impressiveness.
+
+Optimize for **a real, reliable, beautiful, maintainable Yassin Shop website that could actually be shipped.**
+
+Inspect first.
+Decide intelligently.
+Build completely.
+Test aggressively.
+Review critically.
+Fix what is wrong.
+Ship only when it deserves to be shipped.
+
+
